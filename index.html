@@ -198,6 +198,39 @@
     padding: 10px 14px; border-radius: 10px; background: rgba(155,92,255,.18); border: 1px solid rgba(155,92,255,.5);
   }
 
+  /* SIP Stakes gallery */
+  .feature + .feature { margin-top: 14px; }
+  .gallery { position: relative; padding: 12px 0 0; }
+  .track {
+    display: flex; gap: 10px; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scroll-padding: 0 12px; padding: 0 12px 2px;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .track::-webkit-scrollbar { display: none; }
+  .track img {
+    flex: none; height: 420px; width: auto; scroll-snap-align: start;
+    border-radius: 14px; border: 1px solid var(--line); background: #0b0712;
+    user-select: none; -webkit-user-drag: none;
+  }
+  .track::after { content: ""; flex: 0 0 2px; }
+  .dots { display: flex; justify-content: center; gap: 6px; padding: 12px 0 2px; }
+  .dots button {
+    width: 6px; height: 6px; padding: 0; border: 0; border-radius: 99px; cursor: pointer;
+    background: rgba(196,161,255,.3); transition: width .2s, background .2s;
+  }
+  .dots button[aria-current="true"] { width: 18px; background: var(--purple); }
+  .nav {
+    position: absolute; top: calc(12px + 210px); transform: translateY(-50%);
+    width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line);
+    background: rgba(6,4,8,.8); color: var(--ink); font-size: 18px; cursor: pointer;
+    display: none;
+  }
+  .nav.prev { left: 8px; } .nav.next { right: 8px; }
+  .nav:disabled { opacity: 0; pointer-events: none; }
+  @media (hover: hover) and (pointer: fine) and (min-width: 600px) { .nav { display: grid; place-items: center; } }
+  .feature .tagline { margin-top: 2px; color: var(--violet); font-weight: 700; font-size: 16px; }
+  .chip.dev { color: #ffd58a; border-color: rgba(255,213,138,.4); }
+
   /* tabs */
   .tabs {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;
@@ -234,6 +267,9 @@
   .pill.live { color: #3ef08a; border-color: rgba(62,240,138,.4); }
   .pill.soon { color: var(--violet); border-color: rgba(196,161,255,.4); }
   .item .link { color: var(--violet); font-weight: 600; font-size: 14px; }
+  .item .desc { color: var(--muted); font-size: 14px; margin-top: 6px; line-height: 1.45; }
+  .item { align-items: start; }
+  .item .thumb { align-self: start; }
 
   /* footer */
   footer { padding: 34px 0 max(28px, env(safe-area-inset-bottom)); }
@@ -315,7 +351,7 @@
 
 <div class="wrap">
   <section aria-labelledby="feat">
-    <div class="sh"><h2 id="feat">Featured</h2><span class="mono">01 / Games</span></div>
+    <div class="sh"><h2 id="feat">Featured</h2><span class="mono">2 projects</span></div>
     <a class="feature" href="https://checkball.web.app/demo" target="_blank" rel="noopener">
       <div class="art">
         <img src="img/checkball-hero.webp" alt="Check Ball title screen: students in purple jerseys on a basketball court" width="1000" height="563" decoding="async">
@@ -327,6 +363,27 @@
         <span class="go">Try the demo <span aria-hidden="true">→</span></span>
       </div>
     </a>
+
+    <article class="feature" aria-labelledby="sip-title">
+      <div class="gallery" data-gallery>
+        <div class="track" tabindex="0" aria-label="SIP Stakes screenshots, swipe for more">
+          <img src="img/sip-1-promo.webp" alt="SIP Stakes Hydration Challenge welcome screen with a glowing water bottle" width="495" height="880" decoding="async" loading="lazy">
+          <img src="img/sip-2-home.webp" alt="SIP Stakes home screen: Join a Challenge or Create a Challenge" width="404" height="880" decoding="async" loading="lazy">
+          <img src="img/sip-3-setup.webp" alt="SIP Stakes Get Set Up screen: four steps to add the app to your home screen" width="404" height="880" decoding="async" loading="lazy">
+          <img src="img/sip-4-join.webp" alt="SIP Stakes Join a Challenge screen with a challenge code field" width="404" height="880" decoding="async" loading="lazy">
+          <img src="img/sip-5-found.webp" alt="SIP Stakes Challenge Found screen showing players, length and prize pot" width="404" height="880" decoding="async" loading="lazy">
+        </div>
+        <button class="nav prev" type="button" aria-label="Previous screenshot">←</button>
+        <button class="nav next" type="button" aria-label="Next screenshot">→</button>
+        <div class="dots" role="group" aria-label="Choose screenshot"></div>
+      </div>
+      <div class="body">
+        <div class="tag"><span class="chip dev mono">In development</span><span class="chip mono">Software</span></div>
+        <h3 id="sip-title">SIP Stakes</h3>
+        <p class="tagline">Hydrate. Compete. Win.</p>
+        <p>A social hydration challenge app where friends, teams, and communities set hydration goals, track progress, and compete together.</p>
+      </div>
+    </article>
   </section>
 
   <section aria-labelledby="work">
@@ -340,12 +397,12 @@
 
     <div class="panel" role="tabpanel" id="p-software" aria-labelledby="t-software">
       <div class="item">
-        <div class="thumb"><img src="img/anchor-os.webp" alt="Anchor OS logo" width="64" height="64"></div>
-        <div><h4>Anchor OS</h4><div class="meta"><span class="pill mono">In development</span></div></div>
+        <div class="thumb"><img src="img/sip-icon.webp" alt="" width="64" height="64" loading="lazy"></div>
+        <div><h4>SIP Stakes</h4><div class="meta"><span class="pill mono">In development</span></div><p class="desc">Hydrate. Compete. Win.</p></div>
       </div>
       <div class="item">
-        <div class="thumb" aria-hidden="true">CL</div>
-        <div><h4>CLUTCH</h4><div class="meta"><span class="pill mono">In development</span></div></div>
+        <div class="thumb"><img src="img/anchor-os.webp" alt="Anchor OS logo" width="64" height="64"></div>
+        <div><h4>Anchor OS</h4><div class="meta"><span class="pill mono">In development</span></div></div>
       </div>
       <div class="item">
         <div class="thumb" aria-hidden="true">II</div>
@@ -354,19 +411,23 @@
     </div>
 
     <div class="panel" role="tabpanel" id="p-games" aria-labelledby="t-games" hidden>
-      <p class="panel-intro">Digital and physical games.</p>
+      <p class="panel-intro">Digital games, card games and hands-on classroom activities that make learning interactive, especially social-emotional learning.</p>
       <a class="item" href="https://checkball.web.app/demo" target="_blank" rel="noopener">
         <div class="thumb"><img src="img/checkball.png" alt="" width="64" height="64"></div>
-        <div><h4>Check Ball</h4><div class="meta"><span class="pill live mono">Live</span><span class="link">Try the demo →</span></div></div>
+        <div><h4>Check Ball</h4><div class="meta"><span class="pill live mono">Live</span><span class="pill mono">Digital</span></div><p class="desc">Basketball math game.</p><p class="link" style="margin-top:6px">Try the demo →</p></div>
       </a>
       <div class="item">
+        <div class="thumb" aria-hidden="true">CL</div>
+        <div><h4>CLUTCH</h4><div class="meta"><span class="pill mono">In development</span><span class="pill mono">Card game</span><span class="pill mono">SEL</span></div><p class="desc">An original social-emotional learning card game that helps children recognize emotions, navigate real-life situations, and practice positive coping and social skills.</p></div>
+      </div>
+      <div class="item">
         <div class="thumb" aria-hidden="true">ATW</div>
-        <div><h4>Around the World</h4><div class="meta"><span class="pill mono">Details soon</span></div></div>
+        <div><h4>Around the World</h4><div class="meta"><span class="pill mono">Physical game</span><span class="pill mono">Details soon</span></div><p class="desc">Physical educational game.</p></div>
       </div>
     </div>
 
     <div class="panel" role="tabpanel" id="p-maker" aria-labelledby="t-maker" hidden>
-      <p class="panel-intro">3D-printed products.</p>
+      <p class="panel-intro">3D-printed products, educational manipulatives and other physical creations.</p>
       <a class="item" href="https://makerworld.com/@alltherave" target="_blank" rel="noopener">
         <div class="thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1.5 2.5 7v10l9.5 5.5 9.5-5.5V7L12 1.5zm0 2.3 7.1 4.1L12 12 4.9 7.9 12 3.8zM4.5 9.6l6.5 3.8v7.4l-6.5-3.8V9.6zm8.5 11.2v-7.4l6.5-3.8v7.4L13 20.8z"/></svg></div>
         <div><h4>3D printing</h4><div class="meta"><span class="link">See my models on MakerWorld →</span></div></div>
@@ -374,6 +435,7 @@
     </div>
 
     <div class="panel" role="tabpanel" id="p-apparel" aria-labelledby="t-apparel" hidden>
+      <p class="panel-intro">Clothing and merchandise designs.</p>
       <div class="item">
         <div class="thumb" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.5 2 3 4.5 1 10l3.5 1.3L6 9.5V22h12V9.5l1.5 1.8L23 10l-2-5.5L15.5 2c-.4 1.6-1.8 2.7-3.5 2.7S8.9 3.6 8.5 2z"/></svg></div>
         <div><h4>Apparel</h4><div class="meta"><span class="pill soon mono">Coming soon</span></div></div>
@@ -395,6 +457,38 @@
 
 <script>
   document.getElementById("y").textContent = new Date().getFullYear();
+  document.querySelectorAll("[data-gallery]").forEach(function (g) {
+    var track = g.querySelector(".track"), slides = track.querySelectorAll("img");
+    var dots = g.querySelector(".dots"), prev = g.querySelector(".prev"), next = g.querySelector(".next");
+    var cur = 0;
+    slides.forEach(function (_, i) {
+      var d = document.createElement("button");
+      d.type = "button"; d.setAttribute("aria-label", "Screenshot " + (i + 1) + " of " + slides.length);
+      d.addEventListener("click", function () { go(i); });
+      dots.appendChild(d);
+    });
+    function go(i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft - 12, behavior: "smooth" });
+    }
+    function update() {
+      var x = track.scrollLeft, best = 0, bd = Infinity;
+      slides.forEach(function (s, i) { var d = Math.abs(s.offsetLeft - track.offsetLeft - 12 - x); if (d < bd) { bd = d; best = i; } });
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 4) best = slides.length - 1;
+      cur = best;
+      dots.querySelectorAll("button").forEach(function (d, i) { d.setAttribute("aria-current", i === cur); });
+      prev.disabled = cur === 0; next.disabled = cur === slides.length - 1;
+    }
+    prev.addEventListener("click", function () { go(cur - 1); });
+    next.addEventListener("click", function () { go(cur + 1); });
+    track.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); go(cur + 1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(cur - 1); }
+    });
+    track.addEventListener("scroll", function () { requestAnimationFrame(update); }, { passive: true });
+    update();
+  });
+
   var tabs = document.querySelectorAll('[role="tab"]');
   tabs.forEach(function (t) {
     t.addEventListener("click", function () {
