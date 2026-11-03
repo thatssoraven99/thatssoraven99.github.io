@@ -75,12 +75,32 @@
     -webkit-mask-image: linear-gradient(180deg, #000 20%, transparent 95%);
             mask-image: linear-gradient(180deg, #000 20%, transparent 95%);
   }
-  .kicker { color: var(--violet); display: flex; flex-wrap: wrap; gap: 4px 10px; }
-  .kicker b { color: var(--muted); font-weight: 600; }
+  .kicker { color: var(--violet); display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
+  .kicker b { display: none; }
+
+  /* portrait: framed photo, glow sits behind it, never over the face */
+  .portrait {
+    position: absolute; right: 6px; top: 4px; z-index: 1; margin: 0;
+    width: min(28vw, 112px); aspect-ratio: 4 / 5;
+  }
+  .portrait::before {
+    content: ""; position: absolute; inset: -18px; z-index: -2;
+    background: radial-gradient(closest-side, rgba(155,92,255,.6), transparent);
+  }
+  .portrait::after {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    transform: translate(6px, 6px); border-radius: 16px;
+    border: 1.5px solid var(--purple);
+  }
+  .portrait img {
+    display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 16px;
+    border: 1.5px solid rgba(196,161,255,.6);
+    box-shadow: 0 14px 36px rgba(0,0,0,.55);
+  }
   h1 {
     font: 400 clamp(64px, 21vw, 132px)/.86 var(--display);
     text-transform: uppercase; letter-spacing: -.5px;
-    margin: 14px 0 0;
+    margin: 18px 0 0;
   }
   h1 .outline {
     display: block; color: transparent;
@@ -225,6 +245,7 @@
   @media (min-width: 700px) {
     .hero { padding-top: 48px; }
     .lede { font-size: 22px; }
+    .portrait { width: 150px; }
   }
 </style>
 </head>
@@ -245,7 +266,8 @@
   </div>
 
   <header class="hero">
-    <p class="kicker mono">Special Ed Teacher <b>/</b> Developer <b>/</b> Founder</p>
+    <figure class="portrait"><img src="img/portrait.webp" alt="Coach Washington" width="400" height="500" fetchpriority="high"></figure>
+    <p class="kicker mono"><span>Special Ed Teacher</span> <b>/</b> <span>Developer</span> <b>/</b> <span>Founder</span></p>
     <h1><span class="outline">Coach</span><span class="solid">Washington</span></h1>
     <p class="lede">I teach. I code. I make things you can <em>play</em>, <em>print</em> and <em>wear</em>.</p>
 
@@ -318,7 +340,7 @@
 
     <div class="panel" role="tabpanel" id="p-software" aria-labelledby="t-software">
       <div class="item">
-        <div class="thumb" aria-hidden="true">AO</div>
+        <div class="thumb"><img src="img/anchor-os.webp" alt="Anchor OS logo" width="64" height="64"></div>
         <div><h4>Anchor OS</h4><div class="meta"><span class="pill mono">In development</span></div></div>
       </div>
       <div class="item">
@@ -367,7 +389,7 @@
         Connect on LinkedIn <span class="arrow">→</span>
       </a>
     </div>
-    <p class="fine mono"><span>© <span id="y">2026</span> Coach Washington</span><span>Built from an iPhone</span></p>
+    <p class="fine mono"><span>© <span id="y">2026</span> Coach Washington</span></p>
   </footer>
 </div>
 
