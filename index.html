@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Coach Washington</title>
+<meta name="description" content="Coach Washington: special education teacher, software developer and edtech founder.">
+<meta name="theme-color" content="#0b0712">
+<meta property="og:title" content="Coach Washington">
+<meta property="og:description" content="Special Education Teacher · Software Developer · EdTech Founder">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thatssoraven99.github.io/">
+<link rel="icon" href="img/checkball.png">
+<style>
+  :root {
+    --bg: #0b0712;
+    --panel: #150e22;
+    --line: #2a1d40;
+    --ink: #f4effc;
+    --muted: #b3a6c9;
+    --purple: #8b5cf6;
+    --purple-hi: #a78bfa;
+    --glow: rgba(139, 92, 246, .35);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  [hidden] { display: none !important; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--bg);
+    background-image:
+      radial-gradient(60rem 30rem at 50% -10rem, rgba(139,92,246,.28), transparent 70%),
+      radial-gradient(30rem 20rem at 100% 100%, rgba(139,92,246,.12), transparent 70%);
+    color: var(--ink);
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    padding: max(24px, env(safe-area-inset-top)) 16px max(32px, env(safe-area-inset-bottom));
+  }
+  main { max-width: 560px; margin: 0 auto; }
+
+  header { text-align: center; padding: 28px 0 8px; }
+  .avatar {
+    width: 96px; height: 96px; border-radius: 50%;
+    margin: 0 auto 18px;
+    display: grid; place-items: center;
+    background: linear-gradient(135deg, var(--purple), #4c1d95);
+    box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--purple), 0 10px 40px var(--glow);
+    font-weight: 800; font-size: 34px; letter-spacing: 1px;
+  }
+  h1 { font-size: 32px; line-height: 1.15; letter-spacing: -.5px; }
+  .tag {
+    margin-top: 10px; color: var(--purple-hi);
+    font: 600 13px/1.5 ui-monospace, "SF Mono", Menlo, monospace;
+    letter-spacing: .3px;
+  }
+  .intro { margin: 18px auto 0; color: var(--muted); max-width: 30rem; }
+
+  .actions { display: grid; gap: 12px; margin: 28px 0 8px; }
+  .btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 54px; padding: 14px 18px; border-radius: 14px;
+    font-weight: 650; font-size: 17px; text-decoration: none; color: var(--ink);
+    background: var(--panel); border: 1px solid var(--line);
+    transition: transform .12s, border-color .12s, background .12s;
+  }
+  .btn:active { transform: scale(.98); }
+  .btn:hover { border-color: var(--purple); }
+  .btn.primary {
+    background: linear-gradient(135deg, var(--purple), #6d28d9);
+    border-color: transparent; box-shadow: 0 8px 30px var(--glow);
+  }
+  .btn svg { width: 22px; height: 22px; flex: none; fill: currentColor; }
+
+  h2 {
+    margin: 40px 0 14px;
+    font: 700 13px/1 ui-monospace, "SF Mono", Menlo, monospace;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--purple-hi);
+  }
+  h2::before { content: "// "; color: var(--muted); }
+  .projects { display: grid; gap: 12px; }
+  .card {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 16px; border-radius: 16px;
+    background: var(--panel); border: 1px solid var(--line);
+    color: inherit; text-decoration: none;
+  }
+  a.card:hover { border-color: var(--purple); }
+  .card img, .card .mark {
+    width: 52px; height: 52px; border-radius: 12px; flex: none;
+  }
+  .card .mark {
+    display: grid; place-items: center; font-weight: 800; font-size: 18px;
+    background: #1f1433; color: var(--purple-hi); border: 1px solid var(--line);
+  }
+  .card h3 { font-size: 17px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .card p { color: var(--muted); font-size: 15px; margin-top: 4px; }
+  .pill {
+    font: 600 11px/1 ui-monospace, Menlo, monospace; letter-spacing: .5px;
+    padding: 5px 8px; border-radius: 99px; text-transform: uppercase;
+    border: 1px solid var(--line); color: var(--muted);
+  }
+  .pill.live { color: #c4b5fd; border-color: var(--purple); background: rgba(139,92,246,.15); }
+  .go { margin-top: 8px; color: var(--purple-hi); font-weight: 600; font-size: 15px; }
+
+  footer { margin-top: 44px; text-align: center; color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="avatar" aria-hidden="true">CW</div>
+    <h1>Coach Washington</h1>
+    <p class="tag">Special Education Teacher · Software Developer · EdTech Founder</p>
+    <p class="intro">I teach special education and build education apps with Firebase, Cloud Run and GitHub. Here's what I'm working on and how to reach me.</p>
+  </header>
+
+  <nav class="actions" aria-label="Connect">
+    <a class="btn primary" id="linkedin" href="#" target="_blank" rel="noopener" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+      Connect on LinkedIn
+    </a>
+    <a class="btn" id="email" href="mailto:itscoachwashington@gmail.com">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13zm2.3-.5L12 11.1 19.7 5H4.3zM20 6.6l-7.38 5.85a1 1 0 0 1-1.24 0L4 6.6v11.9c0 .28.22.5.5.5h15a.5.5 0 0 0 .5-.5V6.6z"/></svg>
+      Email me
+    </a>
+    <a class="btn" href="https://github.com/thatssoraven99" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></svg>
+      GitHub
+    </a>
+    <a class="btn" href="contact.vcf" download="Coach-Washington.vcf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-3.33 0-8 1.67-8 5v1h16v-1c0-3.33-4.67-5-8-5z"/></svg>
+      Save my contact
+    </a>
+  </nav>
+
+  <h2>What I'm building</h2>
+  <section class="projects">
+    <a class="card" href="https://checkball.web.app" target="_blank" rel="noopener">
+      <img src="img/checkball.png" alt="" width="52" height="52">
+      <div>
+        <h3>Check Ball <span class="pill live">Live</span></h3>
+        <p>A basketball math game: times tables, missing numbers and division, with a step-by-step help ladder, read-aloud, brain breaks and online Shootout.</p>
+        <p class="go">Play it →</p>
+      </div>
+    </a>
+    <div class="card">
+      <div class="mark" aria-hidden="true">AO</div>
+      <div><h3>Anchor OS <span class="pill">In development</span></h3></div>
+    </div>
+    <div class="card">
+      <div class="mark" aria-hidden="true">CL</div>
+      <div><h3>CLUTCH <span class="pill">In development</span></h3></div>
+    </div>
+    <div class="card">
+      <div class="mark" aria-hidden="true">II</div>
+      <div><h3>Intervention Intelligence <span class="pill">In development</span></h3></div>
+    </div>
+  </section>
+
+  <footer>© <span id="y">2026</span> Coach Washington</footer>
+</main>
+<script>
+  // Set this to your LinkedIn profile URL and the LinkedIn button appears.
+  var LINKEDIN = "";
+  if (LINKEDIN) { var l = document.getElementById("linkedin"); l.href = LINKEDIN; l.hidden = false; }
+  else { document.getElementById("email").classList.add("primary"); }
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
