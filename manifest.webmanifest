@@ -9,12 +9,12 @@
   "theme_color": "#060408",
   "icons": [
     {
-      "src": "/img/coach-photo-192.png",
+      "src": "/img/coach-icon-v3-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/img/coach-photo-512.png",
+      "src": "/img/coach-icon-v3-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
