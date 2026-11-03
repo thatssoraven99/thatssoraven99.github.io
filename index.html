@@ -208,7 +208,7 @@
   }
   .track::-webkit-scrollbar { display: none; }
   .track img {
-    flex: none; height: 420px; width: auto; scroll-snap-align: start;
+    flex: none; height: min(62vh, 520px); width: auto; scroll-snap-align: start;
     border-radius: 14px; border: 1px solid var(--line); background: #0b0712;
     user-select: none; -webkit-user-drag: none;
   }
@@ -220,7 +220,7 @@
   }
   .dots button[aria-current="true"] { width: 18px; background: var(--purple); }
   .nav {
-    position: absolute; top: calc(12px + 210px); transform: translateY(-50%);
+    position: absolute; top: calc(12px + min(62vh, 520px) / 2); transform: translateY(-50%);
     width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line);
     background: rgba(6,4,8,.8); color: var(--ink); font-size: 18px; cursor: pointer;
     display: none;
@@ -228,6 +228,20 @@
   .nav.prev { left: 8px; } .nav.next { right: 8px; }
   .nav:disabled { opacity: 0; pointer-events: none; }
   @media (hover: hover) and (pointer: fine) and (min-width: 600px) { .nav { display: grid; place-items: center; } }
+  button.go { cursor: pointer; font: 700 16px/1 var(--body); }
+  button.go svg { width: 18px; height: 18px; fill: currentColor; }
+  .modal {
+    width: min(100vw - 16px, 560px); max-width: none; max-height: calc(100dvh - 16px);
+    margin: auto; padding: 0 0 14px; border: 1px solid var(--line); border-radius: 20px;
+    background: var(--panel); color: var(--ink); overflow: hidden;
+  }
+  .modal::backdrop { background: rgba(6,4,8,.82); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+  .modal-head { display: flex; justify-content: space-between; align-items: center; padding: 14px 14px 0 16px; }
+  .modal-head h3 { font: 400 28px/1.05 var(--display); text-transform: uppercase; }
+  .close {
+    width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); cursor: pointer;
+    background: #1b1129; color: var(--ink); font-size: 16px;
+  }
   .feature .tagline { margin-top: 2px; color: var(--violet); font-weight: 700; font-size: 16px; }
   .chip.dev { color: #ffd58a; border-color: rgba(255,213,138,.4); }
 
@@ -365,23 +379,18 @@
     </a>
 
     <article class="feature" aria-labelledby="sip-title">
-      <div class="gallery" data-gallery>
-        <div class="track" tabindex="0" aria-label="SIP Stakes screenshots, swipe for more">
-          <img src="img/sip-1-promo.webp" alt="SIP Stakes Hydration Challenge welcome screen with a glowing water bottle" width="495" height="880" decoding="async" loading="lazy">
-          <img src="img/sip-2-home.webp" alt="SIP Stakes home screen: Join a Challenge or Create a Challenge" width="404" height="880" decoding="async" loading="lazy">
-          <img src="img/sip-3-setup.webp" alt="SIP Stakes Get Set Up screen: four steps to add the app to your home screen" width="404" height="880" decoding="async" loading="lazy">
-          <img src="img/sip-4-join.webp" alt="SIP Stakes Join a Challenge screen with a challenge code field" width="404" height="880" decoding="async" loading="lazy">
-          <img src="img/sip-5-found.webp" alt="SIP Stakes Challenge Found screen showing players, length and prize pot" width="404" height="880" decoding="async" loading="lazy">
-        </div>
-        <button class="nav prev" type="button" aria-label="Previous screenshot">←</button>
-        <button class="nav next" type="button" aria-label="Next screenshot">→</button>
-        <div class="dots" role="group" aria-label="Choose screenshot"></div>
+      <div class="art">
+        <img src="img/sip-hero.webp" alt="SIP Stakes artwork: a glowing purple water bottle on a trophy pedestal" width="1000" height="562" decoding="async" loading="lazy">
       </div>
       <div class="body">
         <div class="tag"><span class="chip dev mono">In development</span><span class="chip mono">Software</span></div>
         <h3 id="sip-title">SIP Stakes</h3>
         <p class="tagline">Hydrate. Compete. Win.</p>
         <p>A social hydration challenge app where friends, teams, and communities set hydration goals, track progress, and compete together.</p>
+        <button class="go" type="button" data-open="sip-preview">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h10V4H7zm3 13h4v1.5h-4V17z"/></svg>
+          Preview App
+        </button>
       </div>
     </article>
   </section>
@@ -455,6 +464,25 @@
   </footer>
 </div>
 
+<dialog class="modal" id="sip-preview" aria-labelledby="sip-modal-title">
+  <div class="modal-head">
+    <div><p class="mono" style="color:var(--violet)">App preview</p><h3 id="sip-modal-title">SIP Stakes</h3></div>
+    <button class="close" type="button" aria-label="Close preview" data-close>✕</button>
+  </div>
+  <div class="gallery" data-gallery>
+        <div class="track" tabindex="0" aria-label="SIP Stakes screenshots, swipe for more">
+          <img src="img/sip-1-promo.webp" alt="SIP Stakes Hydration Challenge welcome screen with a glowing water bottle" width="495" height="880" decoding="async" loading="lazy">
+          <img src="img/sip-2-home.webp" alt="SIP Stakes home screen: Join a Challenge or Create a Challenge" width="404" height="880" decoding="async" loading="lazy">
+          <img src="img/sip-3-setup.webp" alt="SIP Stakes Get Set Up screen: four steps to add the app to your home screen" width="404" height="880" decoding="async" loading="lazy">
+          <img src="img/sip-4-join.webp" alt="SIP Stakes Join a Challenge screen with a challenge code field" width="404" height="880" decoding="async" loading="lazy">
+          <img src="img/sip-5-found.webp" alt="SIP Stakes Challenge Found screen showing players, length and prize pot" width="404" height="880" decoding="async" loading="lazy">
+        </div>
+        <button class="nav prev" type="button" aria-label="Previous screenshot">←</button>
+        <button class="nav next" type="button" aria-label="Next screenshot">→</button>
+        <div class="dots" role="group" aria-label="Choose screenshot"></div>
+      </div>
+</dialog>
+
 <script>
   document.getElementById("y").textContent = new Date().getFullYear();
   document.querySelectorAll("[data-gallery]").forEach(function (g) {
@@ -487,6 +515,15 @@
     });
     track.addEventListener("scroll", function () { requestAnimationFrame(update); }, { passive: true });
     update();
+  });
+
+  document.querySelectorAll("[data-open]").forEach(function (b) {
+    var dlg = document.getElementById(b.getAttribute("data-open"));
+    b.addEventListener("click", function () {
+      dlg.showModal();
+      var t = dlg.querySelector(".track"); t.scrollLeft = 0; t.dispatchEvent(new Event("scroll"));
+    });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg || e.target.closest("[data-close]")) dlg.close(); });
   });
 
   var tabs = document.querySelectorAll('[role="tab"]');
