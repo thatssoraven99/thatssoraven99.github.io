@@ -2,7 +2,7 @@ BEGIN:VCARD
 VERSION:3.0
 FN:Raven Washington
 N:Washington;Raven;;;
-NICKNAME:Coach Washington
+ORG:Coach Washington
 TITLE:Special Education Teacher · Software Developer · EdTech Founder
 TEL;TYPE=CELL,VOICE:+1-215-839-6791
 EMAIL;TYPE=INTERNET:itscoachwashington@gmail.com
