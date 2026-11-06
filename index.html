@@ -160,6 +160,28 @@
   }
   .text-link:hover { color: var(--gold); }
 
+  /* SIP Stakes: real screenshots in drawn phone frames */
+  .art.mock {
+    display: block; width: 100%; border: 0; padding: 0; cursor: pointer;
+    background: radial-gradient(120% 90% at 50% 100%, #3a2418 0%, var(--espresso) 70%);
+  }
+  .art.mock::before {
+    content: ""; position: absolute; left: 50%; bottom: -30%; width: 70%; height: 60%; transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(216,184,120,.28), transparent); pointer-events: none;
+  }
+  .phone {
+    position: absolute; bottom: -9%; width: 21.5%; aspect-ratio: 404 / 880;
+    padding: 2.2%; border-radius: 13% / 6%; background: #0d0907;
+    box-shadow: 0 0 0 1px rgba(216,184,120,.55), 0 18px 34px rgba(0,0,0,.45);
+    transition: transform .8s ease;
+  }
+  .phone img { width: 100%; height: 100%; object-fit: cover; border-radius: 11% / 5%; }
+  .phone.front { left: 56%; transform: translateX(-70%); z-index: 2; }
+  .phone.back { left: 56%; transform: translateX(12%) rotate(6deg); bottom: -16%; opacity: .92; }
+  .feature:hover .phone.front { transform: translateX(-70%) translateY(-4px); }
+  .feature:hover .phone.back { transform: translateX(14%) rotate(7deg); }
+  .mock-label { position: absolute; z-index: 3; left: 14px; bottom: 14px; color: var(--gold-hi); writing-mode: vertical-rl; transform: rotate(180deg); }
+
   /* ---------------- the work ---------------- */
   .work { background: var(--cream); margin-top: 56px; padding-bottom: 56px; }
   .tabs { display: flex; gap: 20px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--line); }
@@ -308,8 +330,10 @@
       </article>
 
       <article class="feature reveal" aria-labelledby="sip-title">
-        <button class="art" type="button" data-open="sip-preview" aria-label="Preview the SIP Stakes app" style="border:0;padding:0;cursor:pointer">
-          <img src="img/sip-hero.webp" alt="SIP Stakes artwork: a glowing water bottle on a trophy pedestal" width="1000" height="562" loading="lazy" decoding="async">
+        <button class="art mock" type="button" data-open="sip-preview" aria-label="Preview the SIP Stakes app">
+          <span class="phone back"><img src="img/sip-5-found.webp" alt="" width="404" height="880" loading="lazy" decoding="async"></span>
+          <span class="phone front"><img src="img/sip-2-home.webp" alt="SIP Stakes home screen" width="404" height="880" loading="lazy" decoding="async"></span>
+          <span class="mock-label caps">Tap to preview</span>
         </button>
         <div>
           <p class="meta caps"><span class="dev">In development</span><span>Software</span></p>
