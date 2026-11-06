@@ -220,8 +220,8 @@
   .row .go { display: inline-block; margin-top: 8px; color: var(--gold); }
 
   .garments { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0 6px; }
-  .garments figure:first-child { grid-column: 1 / -1; }
   .garments img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border: 1px solid var(--line); }
+  .garments .tall img { aspect-ratio: 4 / 5; }
   .garments figcaption { margin-top: 8px; font: italic 400 17px/1.2 var(--serif); }
   .garments figcaption .caps { display: block; margin-bottom: 4px; font: 500 10px/1.2 var(--sans); letter-spacing: .28em; text-transform: uppercase; color: var(--gold); font-style: normal; }
 
@@ -433,7 +433,8 @@
     <div role="tabpanel" id="p-apparel" aria-labelledby="t-apparel" hidden>
       <p class="panel-intro">Clothing I design and make, from handmade pieces to streetwear.</p>
       <div class="garments">
-        <figure><img src="img/apparel-skirt.webp" alt="Raven wearing a red skirt she made" width="600" height="600" loading="lazy" decoding="async"><figcaption><span class="caps">Handmade</span>The red skirt</figcaption></figure>
+        <figure class="tall"><img src="img/apparel-skirt.webp" alt="Raven wearing a red skirt she made" width="600" height="750" loading="lazy" decoding="async"><figcaption><span class="caps">Handmade</span>The red skirt</figcaption></figure>
+        <figure class="tall"><img src="img/apparel-knit.webp" alt="Raven wearing a chunky knit skirt she made" width="600" height="750" loading="lazy" decoding="async"><figcaption><span class="caps">Handmade</span>The chunky knit skirt</figcaption></figure>
         <figure><img src="img/apparel-nxxxa.webp" alt="Burgundy NXXXA crewneck sweatshirt mockup" width="600" height="600" loading="lazy" decoding="async"><figcaption><span class="caps">Streetwear</span>NXXXA crewneck</figcaption></figure>
         <figure><img src="img/apparel-osage.webp" alt="Black Philadelphia Osage Avenue 1985 sweatshirt mockup" width="600" height="600" loading="lazy" decoding="async"><figcaption><span class="caps">Streetwear</span>Osage Avenue 1985</figcaption></figure>
       </div>
