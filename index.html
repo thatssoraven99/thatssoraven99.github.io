@@ -125,6 +125,14 @@
   .h2 i { font-weight: 400; }
 
   /* ---------------- who i am ---------------- */
+  .spread { display: grid; grid-template-columns: 1fr 46%; gap: 18px; align-items: end; margin-bottom: 30px; }
+  .pull { font: italic 400 21px/1.3 var(--serif); color: var(--espresso); }
+  .pull::before { content: "\201C"; display: block; font: 400 64px/.6 var(--serif); color: var(--gold); margin-bottom: 6px; }
+  .pull-by { margin-top: 12px; color: var(--ink-soft); }
+  .shot { position: relative; margin: 0 6px 6px 0; }
+  .shot::after { content: ""; position: absolute; top: 10px; left: 10px; width: 100%; aspect-ratio: 4 / 5; border: 1px solid var(--gold); z-index: 0; }
+  .shot img { position: relative; z-index: 1; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+  .shot figcaption { margin-top: 22px; font: 400 18px/1 var(--script); color: var(--gold); }
   .creds { display: grid; gap: 14px; }
   .cert {
     position: relative; padding: 22px 20px 20px; background: #fffaf2;
@@ -261,6 +269,8 @@
     .h2 { font-size: 84px; }
     .features { grid-template-columns: 1fr 1fr; gap: 40px; }
     .creds { grid-template-columns: repeat(3, 1fr); }
+    .spread { grid-template-columns: 1fr 34%; gap: 48px; }
+    .pull { font-size: 32px; }
   }
 </style>
 </head>
@@ -303,6 +313,16 @@
   <div class="wrap">
     <p class="kicker caps">01 · Who I am</p>
     <h2 class="h2" id="who"><span class="scr">Who</span>I Am</h2>
+    <div class="spread reveal">
+      <div>
+        <p class="pull">I find where a system fails people, build the smallest thing that fixes it, and get people using it.</p>
+        <p class="pull-by caps">Raven Washington</p>
+      </div>
+      <figure class="shot">
+        <img src="img/raven-meetup.webp" alt="Raven Washington smiling in conversation at a Cursor meetup" width="480" height="600" loading="lazy" decoding="async">
+        <figcaption>Cursor Philly, 2026</figcaption>
+      </figure>
+    </div>
     <div class="creds">
       <div class="cert reveal"><span class="seal" aria-hidden="true">T</span><p class="caps">BBA · Finance</p><h3>Temple University</h3><p>Fox School of Business, 2022</p></div>
       <div class="cert reveal"><span class="seal" aria-hidden="true">R</span><p class="caps">MAT · Special Education</p><h3>Relay Graduate School of Education</h3><p>Expected 2027</p></div>
