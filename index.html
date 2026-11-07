@@ -170,7 +170,14 @@
 
   /* Check Ball photo swipe */
   .art.swipe .track { padding: 0; gap: 0; scroll-padding: 0; height: 100%; }
-  .art.swipe .track img { height: 100%; width: 100%; flex: 0 0 100%; object-fit: cover; border: 0; background: none; }
+  .art.swipe .slide { position: relative; flex: 0 0 100%; height: 100%; margin: 0; scroll-snap-align: start; }
+  .art.swipe .slide img { height: 100%; width: 100%; object-fit: cover; border: 0; background: none; }
+  .art.swipe figcaption {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 14px 30px;
+    background: linear-gradient(transparent, rgba(20,12,7,.85));
+    color: #f6f0e6; font: italic 400 16px/1.25 var(--serif);
+  }
+  .art.swipe figcaption span { display: block; margin-bottom: 4px; font: 600 10px/1 var(--sans); letter-spacing: .28em; text-transform: uppercase; font-style: normal; color: var(--gold-hi); }
   .art.swipe .track::after { display: none; }
   .art.swipe .dots { position: absolute; left: 0; right: 0; bottom: 10px; padding: 0; z-index: 2; }
   .art.swipe .dots button { background: rgba(246,240,230,.55); }
@@ -357,8 +364,8 @@
       <article class="feature reveal">
         <div class="art swipe" data-gallery>
           <div class="track" tabindex="0" aria-label="Check Ball photos, swipe for more">
-            <img src="img/checkball-classroom.webp" alt="Raven Washington presenting Check Ball on the board in her classroom" width="1200" height="675" loading="lazy" decoding="async">
-            <img src="img/checkball-cursor.webp" alt="Raven demoing Check Ball while guests play it on their phones at Cursor Philly" width="1200" height="675" loading="lazy" decoding="async">
+            <figure class="slide"><img src="img/checkball-classroom.webp" alt="Raven Washington presenting Check Ball on the board in her classroom" width="1200" height="675" loading="lazy" decoding="async"><figcaption><span>STEM Club</span>Demoing Check Ball for my students</figcaption></figure>
+            <figure class="slide"><img src="img/checkball-cursor.webp" alt="Raven demoing Check Ball while guests play it on their phones at Cursor Philly" width="1200" height="675" loading="lazy" decoding="async"><figcaption><span>Cursor Philly</span>Presenting Check Ball to the community</figcaption></figure>
           </div>
           <button class="nav prev" type="button" aria-label="Previous photo">←</button>
           <button class="nav next" type="button" aria-label="Next photo">→</button>
@@ -515,7 +522,7 @@
 
   // screenshot gallery
   document.querySelectorAll("[data-gallery]").forEach(function (g) {
-    var track = g.querySelector(".track"), slides = track.querySelectorAll("img");
+    var track = g.querySelector(".track"), slides = Array.from(track.children);
     var dots = g.querySelector(".dots"), prev = g.querySelector(".prev"), next = g.querySelector(".next");
     var cur = 0, pad = parseFloat(getComputedStyle(track).paddingLeft) || 0;
     slides.forEach(function (_, i) {
