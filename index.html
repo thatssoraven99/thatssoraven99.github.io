@@ -296,6 +296,57 @@
     .spread { grid-template-columns: 1fr 34%; gap: 48px; }
     .pull { font-size: 32px; }
   }
+  /* ================= desktop layout ================= */
+  @media (min-width: 1024px) {
+    body { position: relative; }
+    .wrap { max-width: 1200px; padding: 0 56px; }
+
+    /* hero: intro on the left half, RAVEN + portrait on the right half */
+    .hero { height: min(100svh, 920px); min-height: 680px; }
+    .spine { display: none; }
+    .word { left: 49%; top: 54%; font-size: min(21svh, 190px); }
+    .portrait { right: 5%; height: 80%; }
+    .band {
+      position: absolute; z-index: 6; top: 0; left: 0;
+      width: 48%; height: min(100svh, 920px); min-height: 680px;
+      background: transparent; color: var(--espresso);
+      display: flex; align-items: center; padding: 0;
+    }
+    .band .wrap { max-width: 470px; margin: 0 0 0 max(56px, calc((100vw - 1200px) / 2 + 56px)); padding: 0; }
+    .sig { font-size: 76px; color: var(--gold); }
+    .title { color: var(--ink-soft); letter-spacing: .22em; }
+    .lede { font-size: 30px; color: var(--espresso); }
+    .lede em { color: var(--gold); }
+    .band .btn { color: var(--espresso); border-color: rgba(184,145,79,.7); }
+    .band .btn:hover { background: rgba(184,145,79,.12); }
+    .band .btn.primary { background: var(--espresso); border-color: var(--espresso); color: var(--paper); }
+    .band .btn.primary:hover { background: var(--cocoa); }
+    .icons { justify-content: flex-start; gap: 14px; }
+    .icons a { flex: 0 0 52px; color: var(--cocoa); border-color: rgba(184,145,79,.7); }
+    .icons a:hover { background: var(--espresso); color: var(--gold-hi); }
+
+    /* sections breathe wider */
+    section.sec { padding-top: 96px; }
+    .h2 { font-size: 104px; }
+    .spread { grid-template-columns: 1.3fr 1fr; gap: 72px; align-items: center; }
+    .shot { max-width: 420px; justify-self: end; }
+    .pull { font-size: 40px; }
+    .features { gap: 56px; }
+    .feature h3 { font-size: 46px; }
+
+    /* the work: two columns of projects, three across for clothes */
+    .list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; }
+    .garments { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .garments .wide { grid-column: auto; }
+    .panel-intro { max-width: 640px; }
+
+    /* footer: headline left, actions right */
+    footer .wrap { max-width: 1200px; display: grid; grid-template-columns: 1.5fr 1fr; column-gap: 72px; align-items: end; }
+    .sign { font-size: 78px; grid-column: 1; white-space: nowrap; }
+    .sign-sub { grid-column: 1; margin-bottom: 0; }
+    footer .cta { grid-column: 2; grid-row: 1 / span 2; align-self: end; margin: 0; }
+    .fine { grid-column: 1 / -1; }
+  }
 </style>
 </head>
 <body>
