@@ -200,7 +200,7 @@
     box-shadow: 0 0 0 1px rgba(216,184,120,.55), 0 18px 34px rgba(0,0,0,.45);
     transition: transform .8s ease;
   }
-  .phone img { width: 100%; height: 100%; object-fit: cover; border-radius: 11% / 5%; }
+  .phone img { width: 100%; height: 100%; object-fit: fill; border-radius: 11% / 5%; }
   .phone.front { left: 56%; transform: translateX(-70%); z-index: 2; }
   .phone.back { left: 56%; transform: translateX(12%) rotate(6deg); bottom: -16%; opacity: .92; }
   .feature:hover .phone.front { transform: translateX(-70%) translateY(-4px); }
@@ -433,8 +433,8 @@
 
       <article class="feature reveal" aria-labelledby="sip-title">
         <button class="art mock" type="button" data-open="sip-preview" aria-label="Preview the SIP Stakes app">
-          <span class="phone back"><img src="img/sip-5-found.webp" alt="" width="404" height="880" loading="lazy" decoding="async"></span>
-          <span class="phone front"><img src="img/sip-2-home.webp" alt="SIP Stakes home screen" width="404" height="880" loading="lazy" decoding="async"></span>
+          <span class="phone back"><img src="img/sip-v2-board.webp" alt="" width="404" height="880" loading="lazy" decoding="async"></span>
+          <span class="phone front"><img src="img/sip-v2-home.webp" alt="SIP Stakes home screen tracking today's water goal" width="404" height="880" loading="lazy" decoding="async"></span>
           <span class="mock-label caps">Tap to preview</span>
         </button>
         <div>
@@ -545,11 +545,9 @@
   </div>
   <div class="gallery" data-gallery>
     <div class="track" tabindex="0" aria-label="SIP Stakes screenshots, swipe for more">
-      <img src="img/sip-1-promo.webp" alt="SIP Stakes Hydration Challenge welcome screen with a glowing water bottle" width="495" height="880" loading="lazy" decoding="async">
-      <img src="img/sip-2-home.webp" alt="SIP Stakes home screen: Join a Challenge or Create a Challenge" width="404" height="880" loading="lazy" decoding="async">
-      <img src="img/sip-3-setup.webp" alt="SIP Stakes Get Set Up screen: four steps to add the app to your home screen" width="404" height="880" loading="lazy" decoding="async">
-      <img src="img/sip-4-join.webp" alt="SIP Stakes Join a Challenge screen with a challenge code field" width="404" height="880" loading="lazy" decoding="async">
-      <img src="img/sip-5-found.webp" alt="SIP Stakes Challenge Found screen showing players, length and prize pot" width="404" height="880" loading="lazy" decoding="async">
+      <img src="img/sip-v2-home.webp" alt="SIP Stakes home screen: today's goal, a bottle you drag to log sips, and the team pot" width="404" height="880" loading="lazy" decoding="async">
+      <img src="img/sip-v2-board.webp" alt="SIP Stakes scoreboard: today's podium and this week's pot" width="404" height="880" loading="lazy" decoding="async">
+      <img src="img/sip-v2-bottle.webp" alt="SIP Stakes bottle setup: set your bottle size and color" width="404" height="880" loading="lazy" decoding="async">
     </div>
     <button class="nav prev" type="button" aria-label="Previous screenshot">←</button>
     <button class="nav next" type="button" aria-label="Next screenshot">→</button>
