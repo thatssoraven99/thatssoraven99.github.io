@@ -337,7 +337,8 @@
 
     /* the work: two columns of projects, three across for clothes */
     .list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; }
-    .garments { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .garments { grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: start; }
+    .garments img { aspect-ratio: 4 / 5; }
     .garments .wide { grid-column: auto; }
     .panel-intro { max-width: 640px; }
 
@@ -514,6 +515,7 @@
     <div role="tabpanel" id="p-apparel" aria-labelledby="t-apparel" hidden>
       <p class="panel-intro">Clothing I design and make, from handmade pieces to streetwear.</p>
       <div class="garments">
+        <figure class="tall wide"><img src="img/apparel-coat.webp" alt="Raven wearing an olive chunky-knit coat she made, with a cream pocket" width="720" height="900" loading="lazy" decoding="async"><figcaption><span class="caps">Handmade</span>The chunky knit coat</figcaption></figure>
         <figure class="tall wide"><img src="img/apparel-skirt.webp" alt="Raven wearing a red knit skirt she made" width="600" height="750" loading="lazy" decoding="async"><figcaption><span class="caps">Handmade</span>The red skirt</figcaption></figure>
         <figure><img src="img/apparel-nxxxa.webp" alt="Burgundy NXXXA crewneck sweatshirt mockup" width="600" height="600" loading="lazy" decoding="async"><figcaption><span class="caps">Streetwear</span>NXXXA crewneck</figcaption></figure>
         <figure><img src="img/apparel-osage.webp" alt="Black Philadelphia Osage Avenue 1985 sweatshirt mockup" width="600" height="600" loading="lazy" decoding="async"><figcaption><span class="caps">Streetwear</span>Osage Avenue 1985</figcaption></figure>
