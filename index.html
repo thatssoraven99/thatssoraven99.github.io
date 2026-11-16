@@ -298,7 +298,9 @@
     .spine { left: 32px; height: auto; bottom: 40px; }
     .h2 { font-size: 84px; }
     .features { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .creds { grid-template-columns: repeat(3, 1fr); }
+    .creds { grid-template-columns: repeat(6, 1fr); }
+    .creds .cert { grid-column: span 2; }
+    .creds .cert:nth-child(n+4) { grid-column: span 3; }
     .spread { grid-template-columns: 1fr 34%; gap: 48px; }
     .pull { font-size: 32px; }
   }
@@ -406,8 +408,10 @@
     </div>
     <div class="creds">
       <div class="cert reveal"><span class="seal" aria-hidden="true">T</span><p class="caps">BBA · Finance</p><h3>Temple University</h3><p>Fox School of Business, 2022</p></div>
-      <div class="cert reveal"><span class="seal" aria-hidden="true">R</span><p class="caps">MAT · Special Education</p><h3>Relay Graduate School of Education</h3><p>Expected 2027</p></div>
+      <div class="cert reveal"><span class="seal" aria-hidden="true">R</span><p class="caps">MAT · Special Education</p><h3>Relay Graduate School of Education</h3><p>Expected 2027 · Dean's List, 3.96 GPA</p></div>
       <div class="cert reveal"><span class="seal" aria-hidden="true">G</span><p class="caps">Certification</p><h3>Gemini Certified Educator</h3><p>Google</p></div>
+      <div class="cert reveal"><span class="seal" aria-hidden="true">PA</span><p class="caps">Instructional I · PreK–4</p><h3>Pennsylvania Teaching Certificate</h3><p>General education, 2026</p></div>
+      <div class="cert reveal"><span class="seal" aria-hidden="true">PA</span><p class="caps">Special Education · PreK–12</p><h3>Pennsylvania Teaching Certificate</h3><p>Experience-Based, 2026</p></div>
     </div>
     <div class="tools" aria-label="Tools I build with"><span>Firebase</span><span>Supabase</span><span>JavaScript</span><span>PWAs</span><span>Apps Script</span><span>3D printing</span></div>
   </div>
